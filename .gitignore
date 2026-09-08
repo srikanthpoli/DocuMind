@@ -15,8 +15,12 @@
 npm-debug.log*
 
 # Local RAG data and user uploads
-**/chroma_db/
-**/uploaded_docs/
+**/chroma_db/*
+!**/chroma_db/
+!**/chroma_db/.gitkeep
+**/uploaded_docs/*
+!**/uploaded_docs/
+!**/uploaded_docs/.gitkeep
 
 # Editors and operating-system files
 .vscode/*
