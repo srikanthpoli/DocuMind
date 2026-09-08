@@ -1,0 +1,38 @@
+<div class="panel-heading">
+  <div>
+    <p class="eyebrow">01 / Library</p>
+    <h2>Your documents</h2>
+  </div>
+  <span class="count-badge">{{ uploadedFiles.length }}</span>
+</div>
+
+<label class="drop-zone" [class.has-file]="selectedFile" for="pdf-input">
+  <span class="upload-icon">+</span>
+  <span class="drop-title">{{ selectedFile ? selectedFile.name : 'Choose a PDF' }}</span>
+  <span class="drop-help">{{ selectedFile ? 'Ready to index' : 'PDF files only' }}</span>
+  <input id="pdf-input" type="file" accept="application/pdf,.pdf" (change)="onFileSelected($event)" />
+</label>
+
+<button class="primary-button" type="button" [disabled]="!selectedFile || uploadState === 'uploading'" (click)="uploadDocument()">
+  <span>{{ uploadState === 'uploading' ? 'Indexing...' : 'Index document' }}</span>
+  <span aria-hidden="true">&rarr;</span>
+</button>
+
+<div class="library-list" *ngIf="uploadedFiles.length; else emptyLibrary">
+  <p class="list-label">Indexed files</p>
+  <div class="file-row" *ngFor="let file of uploadedFiles">
+    <span class="file-type">PDF</span>
+    <span class="file-name">{{ file }}</span>
+    <span class="file-check">&#10003;</span>
+  </div>
+</div>
+<ng-template #emptyLibrary>
+  <div class="empty-library">Your indexed PDFs will appear here.</div>
+</ng-template>
+
+<div class="index-status" [class.success]="uploadState === 'success'">
+  <span class="status-dot"></span>
+  <span>{{ statusMessage }}</span>
+</div>
+
+<p class="error-message" *ngIf="errorMessage">{{ errorMessage }}</p>

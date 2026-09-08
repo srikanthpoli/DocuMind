@@ -1,0 +1,38 @@
+# Web API framework and request handling
+fastapi
+
+# ASGI server used to run the FastAPI application
+uvicorn
+
+# Core LangChain abstractions for building the RAG pipeline
+langchain
+
+# Compatibility chain helpers such as retrieval and document QA chains
+langchain-classic
+
+# Community document loaders, embeddings, and vector-store integrations
+langchain-community
+
+# PDF parser used by LangChain's PyPDFLoader
+pypdf
+
+# Utilities for splitting documents into searchable chunks
+langchain-text-splitters
+
+# LangChain integration for the xAI Grok chat model
+langchain-xai
+
+# Persistent vector database for document embeddings
+chromadb
+
+# Downloads and runs the all-MiniLM-L6-v2 embedding model
+sentence-transformers
+
+# OpenAI-compatible client exceptions used for xAI authentication errors
+openai
+
+# Enables multipart file uploads for the /upload endpoint
+python-multipart
+
+# Loads XAI_API_KEY and other settings from a local .env file
+python-dotenv

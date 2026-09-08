@@ -1,0 +1,15 @@
+:host {
+  display: flex;
+  min-height: 100%;
+  flex-direction: column;
+}
+
+.chat-actions { display: flex; align-items: center; gap: .45rem; }
+.session-button { padding: .5rem .65rem; border: 1px solid rgba(29, 81, 70, .25); background: transparent; color: #356356; cursor: pointer; font: 600 .6rem 'Space Grotesk', sans-serif; letter-spacing: .06em; text-transform: uppercase; }
+.session-button:hover { background: rgba(255, 252, 246, .7); }
+.session-button.danger { border-color: rgba(164, 67, 54, .3); color: #a44336; }
+.session-button:disabled { cursor: not-allowed; opacity: .4; }
+
+@media (max-width: 560px) {
+  .chat-actions { align-items: flex-end; flex-direction: column; }
+}

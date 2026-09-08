@@ -1,0 +1,19 @@
+[project]
+name = "documind-backend"
+version = "0.1.0"
+requires-python = "==3.14.7"
+dependencies = [
+  "fastapi",
+  "uvicorn",
+  "langchain",
+  "langchain-classic",
+  "langchain-community",
+  "pypdf",
+  "langchain-text-splitters",
+  "langchain-xai",
+  "chromadb",
+  "sentence-transformers",
+  "openai",
+  "python-multipart",
+  "python-dotenv"
+]

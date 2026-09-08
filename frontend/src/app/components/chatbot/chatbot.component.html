@@ -1,0 +1,38 @@
+<div class="panel-heading chat-heading">
+  <div>
+    <p class="eyebrow">02 / Conversation</p>
+    <h2>Research companion</h2>
+  </div>
+  <div class="chat-actions">
+    <button type="button" class="session-button" (click)="startNewSession()" [disabled]="chatState === 'sending'">New session</button>
+    <button type="button" class="session-button danger" (click)="endSession()" [disabled]="chatState === 'sending'">End session</button>
+  </div>
+</div>
+
+<div class="conversation" *ngIf="messages.length; else welcomeState">
+  <div class="message" *ngFor="let item of messages" [class.user-message]="item.role === 'user'">
+    <span class="message-label">{{ item.role === 'user' ? 'You' : 'DocuMind' }}</span>
+    <p>{{ item.content }}</p>
+  </div>
+  <div class="typing" *ngIf="chatState === 'sending'">
+    <span></span><span></span><span></span> Searching your documents
+  </div>
+</div>
+<ng-template #welcomeState>
+  <div class="welcome-state">
+    <div class="welcome-number">A</div>
+    <h3>A clearer way through dense material.</h3>
+    <p>Upload a PDF to begin. Ask for a summary, locate a detail, or follow an idea across pages.</p>
+    <div class="suggestion-row">
+      <button type="button" (click)="message = 'Summarize this document in three points.'">Summarize this document</button>
+      <button type="button" (click)="message = 'What are the key conclusions?'">Find key conclusions</button>
+    </div>
+  </div>
+</ng-template>
+
+<form class="composer" (ngSubmit)="sendMessage()">
+  <textarea name="message" [(ngModel)]="message" rows="1" placeholder="Ask a question about your documents..." [disabled]="chatState === 'sending'" (keydown)="onMessageKeydown($event)"></textarea>
+  <button class="send-button" type="submit" [disabled]="!message.trim() || chatState === 'sending'" aria-label="Send message">&uarr;</button>
+</form>
+
+<p class="error-message" *ngIf="errorMessage">{{ errorMessage }}</p>

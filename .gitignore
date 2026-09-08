@@ -1,0 +1,27 @@
+# Environment files and secrets
+**/.env
+**/.env.*
+!**/.env.example
+
+# Python and uv
+**/.venv/
+**/__pycache__/
+**/*.py[cod]
+
+# Angular and Node
+**/node_modules/
+**/dist/
+**/.angular/
+npm-debug.log*
+
+# Local RAG data and user uploads
+**/chroma_db/
+**/uploaded_docs/
+
+# Editors and operating-system files
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json
+.idea/
+.DS_Store
+Thumbs.db
